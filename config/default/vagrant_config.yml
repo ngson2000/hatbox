@@ -1,0 +1,17 @@
+# Base box
+box: precise64
+box_url: http://files.vagrantup.com/precise64.box
+
+# Uncomment below, if you wish to use Ubuntu precise32
+#box: precise32
+#box_url: http://files.vagrantup.com/precise32.box
+
+# synced_folder paths
+host_path: 'workspace'
+guest_path: '/vagrant'
+
+# virtualbox customization
+# TODO: Add documentation comments to help.
+memory: 2048
+cpus: 2
+cpu_cap: 90
