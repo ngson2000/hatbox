@@ -19,9 +19,12 @@ git clone git@github.com:seanbuscay/hatbox.git
 
 ### Step 2: (Optional) Configure the Vagrant Box
 
-You may make changes to some of the configurations for the Vagrant box.  To do so, edit the file:
+You may make changes to some of the configurations for the Vagrant box.  
+
+To do so, edit the file:
  `config/default/default/vagrant_config.yml`.  
- Comments in the config file provide explanations  about the variables which may be changed and their settings.
+
+Comments in the config file provide explanations  about the variables which may be changed and their settings.
 
 ### Step 3: Start the Vagrant Box
 
@@ -38,6 +41,7 @@ vagrant up
 ```
 
 It will take several minutes to configure the virtual machine when running this command for the first time.
+
 **Subsequent runs will be much faster.**
 
 In order to use NFS (set by default) Vagrant may ask you to enter your host machine password.  You should enter your sudo user password.  
