@@ -9,7 +9,7 @@ This code will build a virtual machine to run Behat and Mink behavior-driven tes
 
 ## Installation
 
-*Prerequisites: Vagrant should be installed and working on your system with NFS file sharing.  If it is not, see: [Prerequisites](#prerequisites) section below.*
+*Prerequisites: Vagrant should be installed and working on your system with NFS file sharing.  If it is not, see: [Prerequisites](#prerequisites) below.*
 
 ### Step 1: Clone the Hatbox Repo
 
