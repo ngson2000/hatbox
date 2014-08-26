@@ -1,2 +1,4 @@
 .vagrant
 vendor
+workspace
+!workspace/README.md

@@ -7,7 +7,7 @@ box_url: http://files.vagrantup.com/precise64.box
 #box_url: http://files.vagrantup.com/precise32.box
 
 # synced_folder paths
-host_path: 'workspace'
+host_path: 'share'
 guest_path: '/vagrant'
 
 # virtualbox customization

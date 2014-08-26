@@ -17,7 +17,7 @@ else
   echo ' |-------------------------|'
   curl -sS https://getcomposer.org/installer | php
   sudo mv composer.phar /usr/local/bin/composer
-  echo ' \'
+  echo ' \ '
   # Add Composer vendor path to Paths
   echo '    |'
   echo '    |'
@@ -27,7 +27,7 @@ else
 
   # Add for "vagrant" user
   sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
-  echo ' \'
+  echo ' \ '
   # Install Behat and Mink, plus drivers.
   echo ' |'
   echo ' |'
@@ -61,7 +61,7 @@ else
   echo '   /'
   echo '  /'
   echo ' /'
-  echo ' \'
+  echo ' \ '
 
 
   # So that running `vagrant provision` doesn't redownload everything
