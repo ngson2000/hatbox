@@ -62,8 +62,8 @@ You will be logged into the virtual machine and you should see a prompt like:  `
 
 The Behat documentation site provides a tutorial about [developing web applications with behat and mink](http://docs.behat.org/en/v2.5/cookbook/behat_and_mink.html).  The example tests in this tutorial are already in hatbox. To run the example tests, within your Vagrant shell:
 
-1. Move into the examples directory `cd /vagrant/examples`
-2. Run the tests with the behat command `behat`
+1. Move into the examples directory: `cd /vagrant/examples`
+2. Run the tests with the behat command: `behat`
 
 See the following sections of the Behat and Mink tutorial for an explanation of what the tests are doing and what you should expect to see when the tests run.
 
