@@ -72,7 +72,7 @@ See the following sections of the Behat and Mink tutorial for an explanation of 
 
 ### Run Your Own Tests
 
-From your host machine, clone or copy your behat tests into `share/workspace`
+From your host machine, clone or copy your behat tests into `share/workspace` .
 
 You can just clone your whole project into the `workspace` directory if you like.
 
