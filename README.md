@@ -28,7 +28,7 @@ Comments in the config file provide explanations  about the variables which may 
 
 ### Step 3: Start the Vagrant Box
 
-Use the terminal to move into the directory into which you cloned the repo.  For example:
+Use the terminal to move into the directory in which you cloned the repo.  For example:
 
 ```
 cd ~/workspace/hatbox
