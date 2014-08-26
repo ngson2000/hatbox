@@ -14,6 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Base box
   config.vm.box = vm_conf['box']
   config.vm.box_url = vm_conf['box_url']
+  config.vm.hostname = "hatbox"
 
   config.vm.network "private_network", ip: "192.168.33.10"
   config.ssh.forward_agent = true

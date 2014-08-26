@@ -1,4 +1,4 @@
-# Vagrant Behat
+# Hatbox - A Vagrant Behat Box
 
 *Vagrant files to build a Vagrant Box for Behat behavior-driven development tests of PHP applications and websites.*
 
@@ -9,7 +9,7 @@ This code will build a virtual machine to run Behat and Mink behavior-driven tes
 
 ## Installation
 
-*Prerequisites: Vagrant should be installed and working on your system.  If it is not, see: [Prerequisites - Vagrant](#prerequisites---vagrant) section below.*
+*Prerequisites: Vagrant should be installed and working on your system with NFS file sharing.  If it is not, see: [Prerequisites](#prerequisites) section below.*
 
 ### Step 1: Clone the Vagrant-Behat Repo
 
@@ -47,7 +47,7 @@ After you have started the virtual machine, you may ssh into the virtual machine
 vagrant ssh
 ```
 
-You will be logged into the virtual machine and you should see a prompt like: TODO: `vagrant@selbox:~$`
+You will be logged into the virtual machine and you should see a prompt like:  `vagrant@hatbox:~$`
 
 ### Run the Example Tests
 
@@ -63,15 +63,31 @@ See the following sections of the Behat and Mink tutorial for an explanation of 
 
 ### Run Your Own Tests
 
-## Troubleshooting
 
-### nfs
+## Prerequisites
 
-*Set up your Mac*
+### Install Vagrant and Virtual Box
+
+To get [Vagrant](http://www.vagrantup.com/downloads.html) running on your system, follow these steps:
+
+1. Install VirtualBox - https://www.virtualbox.org/wiki/Downloads
+2. Install Vagrant - http://docs.vagrantup.com/v2/installation/index.html
+3. *(Optional)* To keep your Vagrant Box Utilities in sync with your Virtual Box Version, install the "vbguest plugin" with the following command:
+```
+vagrant plugin install vagrant-vbguest
+```
+
+### Verify NFS is Running
+
+Make sure NFS is running on your (host) system.  
 
 NFS comes pre-installed on OSX 10.5+.
 
-To verify it is running, run the following command in the Mac terminal:
+See: [Network File System (NFS)](https://help.ubuntu.com/12.04/serverguide/network-file-system.html) for Linux systems.
+
+*Troubleshooting:*
+
+In OSX, to verify NFS is running, run the following command in the terminal:
 
 ```
 sudo nfsd start
@@ -83,11 +99,9 @@ You should see an output like this:
 The nfsd service is already running.
 ```
 
-If you do not, follow the instructions in this wiki:
+If you do not see the output above, follow the instructions in this wiki:
 
 http://wiki.xbmc.org/?title=NFS#NFS_sharing_from_OS_X
-
-*Troubleshooting:*
 
 If you get a message about the NFS Export File being invalid, this is a known issue with Vagrant.
 
@@ -98,4 +112,15 @@ sudo rm /etc/exports
 sudo touch /etc/exports
 vagrant halt
 vagrant up --provision
+```
+Finally, if you cannot get NFS to work on your host system, you may turn off NFS file sharing by editing the Vagrant file and changing the following:
+
+from:
+```
+config.vm.synced_folder vm_conf['host_path'], vm_conf['guest_path'], type: "nfs"
+```
+to:
+
+```
+config.vm.synced_folder vm_conf['host_path'], vm_conf['guest_path']
 ```
