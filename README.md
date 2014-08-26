@@ -91,27 +91,26 @@ Then:
   - github.com:your-org/site-b.git
   - github.com:client-org/site-c.git
 4. Each website repo has a directory structure like:
-    ```
-    tests
-    tests/features
-    docroot
-    docroot/index.php
-    ...
-    ```
+    
+        tests
+        tests/features
+        docroot
+        docroot/index.php
+        ...
 5. On your host system, you clone each repo into the hatbox workspace:
-    ```
-    cd cd ~/workspace/hatbox/share/workspace
-    git clone git@github.com:your-org/site-a.git
-    git clone git@github.com:your-org/site-b.git
-    git clone git@github.com:client-org/site-c.git
-    ```
+
+        cd cd ~/workspace/hatbox/share/workspace
+        git clone git@github.com:your-org/site-a.git
+        git clone git@github.com:your-org/site-b.git
+        git clone git@github.com:client-org/site-c.git
+
 6. Then login to hatbox - `vagrant ssh`
 7. And run the tests for each site, putting the results into an html report per site:
-    ```
-    behat site-a/tests -c site-a/tests/behat.yml -f html --out site-a.html
-    behat site-b/tests -c site-b/tests/behat.yml -f html --out site-b.html
-    behat site-c/tests -c site-c/tests/behat.yml -f html --out site-c.html
-    ```
+
+        behat site-a/tests -c site-a/tests/behat.yml -f html --out site-a.html
+        behat site-b/tests -c site-b/tests/behat.yml -f html --out site-b.html
+        behat site-c/tests -c site-c/tests/behat.yml -f html --out site-c.html
+
 8. Now read the html reports :)
 
 ### Shutting Down
