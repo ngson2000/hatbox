@@ -68,6 +68,75 @@ See the following sections of the Behat and Mink tutorial for an explanation of 
 
 ### Run Your Own Tests
 
+From your host machine, clone or copy your behat tests into `share/workspace`
+
+You can just clone your whole project into the `workspace` directory if you like.
+
+Then:
+
+1. [Login](#login) - `vagrant ssh`
+2. Change directories into your project's tests directory.
+3. Run `behat`
+
+#### An example workflow
+
+1. As a QA manager, you oversee QA on a number of websites.
+2. You have three websites you want to run behat tests on.
+3. Each website exists at its own git repo:
+  - github.com:your-org/site-a.git
+  - github.com:your-org/site-b.git
+  - github.com:client-org/site-c.git
+4. Each website repo has a directory structure like:
+```
+tests
+tests/features
+docroot
+docroot/index.php
+...
+```
+5. On your host system, you clone each repo into the hatbox workspace:
+```
+cd cd ~/workspace/hatbox/share/workspace
+git clone git@github.com:your-org/site-a.git
+git clone git@github.com:your-org/site-b.git
+git clone git@github.com:client-org/site-c.git
+```
+6. Then login to hatbox - `vagrant ssh`
+7. And run the tests for each site, putting the results into an html report per site:
+```
+behat site-a/tests -c site-a/tests/behat.yml -f html --out site-a.html
+behat site-b/tests -c site-b/tests/behat.yml -f html --out site-b.html
+behat site-c/tests -c site-c/tests/behat.yml -f html --out site-c.html
+```
+8. Now read the html reports :)
+
+### Shutting Down
+
+Exit the hatbox (Vagrant ssh) shell with this command:
+```
+exit;
+```
+
+Suspend hatbox (save it in its current state) with:
+```
+vagrant suspend
+```
+*After a suspend, you can resume using hatbox by running:*
+```
+vagrant resume
+```
+
+You can also shutdown hatbox with the command:
+```
+vagrant halt
+```
+
+**Important:**
+If you shutdown hatbox, you must start it with the `--provision` option like so:
+```
+vagrant up --provision
+```
+This command will not re-install all the software again.  It will force a restart of the selenium server and the dependencies required to run headless browser tests.
 
 ## Prerequisites
 
