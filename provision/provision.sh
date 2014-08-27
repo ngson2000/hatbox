@@ -24,7 +24,7 @@ else
   echo ' |'
   echo ' |Install PHP, Curl, and git'
   echo ' |---------------------------|'
-  apt-get -y -qq install curl php5 php-apc php5-cli php5-curl git >/dev/null
+  apt-get -y -qq install curl php5 php5-cli php5-curl git >/dev/null
   echo ' \ '
   # Install Java, Chrome, Xvfb, and unzip
   echo ' |'
@@ -62,6 +62,8 @@ else
   echo ' \ '
   # Add bashrc entry to cd to /vagrant on ssh.
   echo 'cd /vagrant' >> /home/vagrant/.bashrc
+  # Hush the verbose Ubuntu login message.
+  touch /home/vagrant/.hushlogin
 
   # So that running `vagrant provision` doesn't redownload everything
   touch /.installed

@@ -1,17 +1,21 @@
 # Base box
-box: precise64
-box_url: http://files.vagrantup.com/precise64.box
+box: ubuntu/trusty64
 
 # Uncomment below, if you wish to use Ubuntu precise32
-#box: precise32
-#box_url: http://files.vagrantup.com/precise32.box
+# box: ubuntu/trusty32
 
 # synced_folder paths
 host_path: 'share'
 guest_path: '/vagrant'
 
-# virtualbox customization
-# TODO: Add documentation comments to help.
+# ip
+ip: 192.168.33.10
+
+# Virtualbox customization
+
+# Increase memory for performance.
 memory: 2048
+# Use more than one CPU
 cpus: 2
+# Increase the vbox cpu cap to 90%
 cpu_cap: 90

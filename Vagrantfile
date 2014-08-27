@@ -1,22 +1,35 @@
+##############################################
+# Settings                                   #
+##############################################
+
 # Require yaml to parse configuaration values
+# No need to edit Vagrant file directly.  Instead edit:
+# config/default/vagrant_config.yml
 require 'yaml'
-# TODO: Document settings.
 current_dir = File.dirname(File.expand_path(__FILE__))
 vm_conf = YAML.load_file("#{current_dir}/config/default/vagrant_config.yml")
+
+# Set paths to the provision scripts.
 prov_script = "#{current_dir}/provision/provision.sh"
 behat_script = "#{current_dir}/provision/behat.sh"
+phpunit_script = "#{current_dir}/provision/phpunit.sh"
 
 # Set API Version
 VAGRANTFILE_API_VERSION = "2"
+
+##############################################
+# Work                                       #
+# There's no need to edit below this point.  #
+##############################################
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Base box
   config.vm.box = vm_conf['box']
-  config.vm.box_url = vm_conf['box_url']
   config.vm.hostname = "hatbox"
 
-  config.vm.network "private_network", ip: "192.168.33.10"
+  # Set network to private in order to use NFS
+  config.vm.network "private_network", ip: vm_conf['ip']
   config.ssh.forward_agent = true
 
   # Share folder to the guest VM. The first argument is
@@ -44,8 +57,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell" do |s|
     s.path = "#{prov_script}"
-    # TODO: May add args back
   end
+  # set :privileged => false so the script it ran as the vagrant user, not as
+  # root.
   config.vm.provision :shell, :path => "#{behat_script}", :privileged => false
+  config.vm.provision :shell, :path => "#{phpunit_script}", :privileged => false
 
 end
